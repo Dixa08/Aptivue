@@ -40,7 +40,7 @@ influenced by:
 ## 👤 Candidate Setup
 
 <p align="center">
-  <img src="doc/YOUR-CANDIDATE-SCREENSHOT.png" width="850">
+  <img src="doc/candidate-selection.png" width="850">
 </p>
 
 ---
@@ -48,7 +48,7 @@ influenced by:
 ## 💬 Adaptive Technical Interview
 
 <p align="center">
-  <img src="doc/YOUR-INTERVIEW-SCREENSHOT.png" width="850">
+  <img src="doc/interview.png" width="850">
 </p>
 
 ---
@@ -56,7 +56,7 @@ influenced by:
 ## 📊 Interview Feedback
 
 <p align="center">
-  <img src="doc/YOUR-FEEDBACK-SCREENSHOT.png" width="850">
+  <img src="doc/feedback.png" width="850">
 </p>
 
 ---
