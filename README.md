@@ -113,3 +113,59 @@ Traditional technical interviews often rely on fixed question lists and provide 
                          │
                          ▼
                 📊 Final Feedback
+
+
+```
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# 📁 Project Structure
+
+```text
+Aptivue/
+│
+├── 📁 frontend/
+│   ├── 📁 src/
+│   │   ├── 📁 components/
+│   │   ├── 📁 data/
+│   │   ├── 📁 lib/
+│   │   ├── 📁 types/
+│   │   ├── 📄 App.tsx
+│   │   └── 🎨 index.css
+│   │
+│   ├── 📄 package.json
+│   ├── 📄 vite.config.ts
+│   └── 📄 tsconfig.json
+│
+├── 📁 backend/
+│   ├── 🐍 interview_agent.py
+│   ├── 🐍 main.py
+│   └── 📄 requirements.txt
+│
+├── 📁 doc/
+│   ├── 🖼️ candidate-selection.png
+│   ├── 🖼️ interview.png
+│   └── 🖼️ feedback.png
+│
+├── 🤖 PROMPTS.md
+├── 📖 README.md
+└── 🚫 .gitignore
+
+
+
+### And immediately below it, add this:
+
+```markdown
+### 📂 Directory Overview
+
+| Directory / File | Purpose |
+|---|---|
+| 🎨 `frontend/` | React + TypeScript + Vite user interface |
+| 🧩 `frontend/src/components/` | Reusable UI components |
+| 📚 `frontend/src/data/` | Interview topics and question-related data |
+| 🔧 `frontend/src/lib/` | Frontend utilities and API logic |
+| 📝 `frontend/src/types/` | TypeScript type definitions |
+| ⚙️ `backend/` | FastAPI backend and interview engine |
+| 🧠 `backend/interview_agent.py` | Core adaptive interview logic |
+| 🚀 `backend/main.py` | FastAPI application and API endpoints |
+| 📸 `doc/` | Product screenshots used in the README |
+| 🤖 `PROMPTS.md` | AI-assisted development / vibe-coding log |
+| 📖 `README.md` | Project documentation |
