@@ -34,7 +34,7 @@ Public interface consumed by main.py:
 """
 
 from __future__ import annotations
-
+import random
 import json
 import os
 import urllib.error
@@ -108,57 +108,191 @@ TOPIC_KEY_TERMS: Dict[str, List[str]] = {
 # Fallback question bank, used only when no LLM key is configured. One
 # question per topic per difficulty tier — the *selection* of topic and
 # difficulty is still fully adaptive; this is just the offline text source.
-FALLBACK_QUESTIONS: Dict[str, Dict[str, str]] = {
+FALLBACK_QUESTIONS: Dict[str, Dict[str, List[str]]] = {
     "embeddings": {
-        "foundational": "In your own words, what does it mean to turn a piece of text into a vector embedding?",
-        "applied": "Suppose two documents use very different terminology but refer to the same concept. Why might embeddings help retrieve both, and what could still cause retrieval to fail?",
-        "advanced": "How would you choose an embedding model dimensionality and similarity metric for a large, domain-specific corpus, and what trade-offs come with that choice?",
-        "system_design": "Design an embedding pipeline that has to re-embed millions of documents whenever the embedding model is upgraded, without downtime. What's your approach?",
+        "foundational": [
+            "In your own words, what does it mean to turn a piece of text into a vector embedding?",
+            "What is a text embedding, and why is it useful for comparing pieces of text?",
+            "Can you explain embeddings using a simple real-world example?",
+        ],
+        "applied": [
+            "Suppose two documents use very different terminology but refer to the same concept. Why might embeddings help retrieve both?",
+            "Imagine you are building semantic search for a college knowledge base. How would embeddings help?",
+            "How would you use embeddings to find documents that are similar in meaning even when they don't share the same keywords?",
+        ],
+        "advanced": [
+            "How would you choose an embedding model and similarity metric for a large, domain-specific corpus?",
+            "What trade-offs exist when choosing embedding dimensionality for a production retrieval system?",
+            "How would you evaluate whether one embedding model is better than another for your retrieval task?",
+        ],
+        "system_design": [
+            "Design an embedding pipeline that re-embeds millions of documents when the model is upgraded. How would you avoid downtime?",
+            "Design a scalable service that continuously creates embeddings for newly uploaded documents.",
+            "How would you design an embedding pipeline that supports model versioning and re-indexing?",
+        ],
     },
+
     "vector_databases": {
-        "foundational": "What role does a vector database play in a retrieval system, and how is it different from a normal database?",
-        "applied": "If you needed to filter search results by metadata (like document date or category) in addition to semantic similarity, how would you approach that?",
-        "advanced": "How would you decide between a local vector store like Chroma and a managed service like Pinecone for a production system, and what would change your mind?",
-        "system_design": "Design a vector database strategy for a system with 500M+ vectors that needs sub-100ms query latency. What are your key architectural decisions?",
+        "foundational": [
+            "What role does a vector database play in a retrieval system, and how is it different from a normal database?",
+            "Why would you use a vector database instead of a traditional relational database for semantic search?",
+            "What is stored inside a vector database and how is it used during similarity search?",
+        ],
+        "applied": [
+            "If you needed to filter search results by metadata such as date or category in addition to semantic similarity, how would you approach that?",
+            "Suppose your vector search returns relevant documents from the wrong department. How could metadata filtering help?",
+            "How would you combine vector similarity search with metadata filters in a real application?",
+        ],
+        "advanced": [
+            "How would you decide between a local vector store and a managed vector database for production?",
+            "What factors would you consider when choosing an indexing strategy for a large vector database?",
+            "How would you balance search accuracy, latency, storage cost, and scalability in a vector database?",
+        ],
+        "system_design": [
+            "Design a vector database strategy for a system with hundreds of millions of vectors and low-latency queries.",
+            "How would you architect a highly available vector search system for millions of users?",
+            "Design a scalable vector retrieval architecture that supports indexing, updates, filtering, and fast search.",
+        ],
     },
+
     "retrieval": {
-        "foundational": "Walk me through what happens, step by step, when a user query comes in and your system needs to retrieve relevant documents.",
-        "applied": "When would you choose hybrid retrieval (keyword + semantic) over pure semantic search, and why?",
-        "advanced": "How would you evaluate whether your retrieval system is actually returning the right documents, at scale, without manually checking every query?",
-        "system_design": "Design a query router that decides between SQL lookup, vector search, and hybrid retrieval. What signals would it use to make that decision?",
+        "foundational": [
+            "Walk me through what happens when a user query comes in and your system needs to retrieve relevant documents.",
+            "What is the difference between retrieval and generation in an AI system?",
+            "Can you explain how a semantic search system finds relevant documents for a user query?",
+        ],
+        "applied": [
+            "When would you choose hybrid retrieval using keyword and semantic search over pure semantic search?",
+            "Suppose semantic search misses exact product names. How would you improve the retrieval system?",
+            "How would you improve retrieval when the system returns many irrelevant documents?",
+        ],
+        "advanced": [
+            "How would you evaluate whether your retrieval system is actually returning the right documents at scale?",
+            "What metrics would you use to evaluate a retrieval system and why?",
+            "How would you diagnose a retrieval system with high recall but poor precision?",
+        ],
+        "system_design": [
+            "Design a query router that decides between SQL lookup, vector search, and hybrid retrieval.",
+            "Design a retrieval pipeline for a large enterprise document collection.",
+            "How would you design a retrieval system that supports multiple document types and ranking strategies?",
+        ],
     },
+
     "rag": {
-        "foundational": "What problem does RAG solve that a plain LLM call doesn't?",
-        "applied": "If your RAG system starts hallucinating facts not present in the retrieved context, where would you start debugging?",
-        "advanced": "How would you handle a case where the retrieved context is too large to fit in the model's context window alongside the conversation history?",
-        "system_design": "Design an end-to-end RAG pipeline for a domain where answers must never contradict retrieved source documents. What guardrails would you add?",
+        "foundational": [
+            "What problem does RAG solve that a plain LLM call doesn't?",
+            "Can you explain the basic flow of a Retrieval-Augmented Generation system?",
+            "Why might an application use RAG instead of relying only on an LLM's trained knowledge?",
+        ],
+        "applied": [
+            "If your RAG system starts hallucinating facts not present in the retrieved context, where would you start debugging?",
+            "How would you improve a RAG system that retrieves relevant documents but still gives poor answers?",
+            "What would you do if the retrieved documents contain conflicting information?",
+        ],
+        "advanced": [
+            "How would you handle a case where the retrieved context is too large to fit in the model's context window?",
+            "How would you evaluate the retrieval and generation components of a RAG system separately?",
+            "What techniques could reduce hallucination in a production RAG system?",
+        ],
+        "system_design": [
+            "Design an end-to-end RAG pipeline for a domain where answers must never contradict retrieved source documents.",
+            "Design a production RAG system that supports millions of documents and frequent document updates.",
+            "How would you design observability for a RAG system so you can diagnose retrieval failures and generation failures?",
+        ],
     },
+
     "prompt_engineering": {
-        "foundational": "What's the difference between zero-shot and few-shot prompting, and when would you use each?",
-        "applied": "How would you systematically compare two candidate system prompts to decide which performs better?",
-        "advanced": "What failure modes have you seen from prompts that work well in testing but degrade in production, and how do you guard against them?",
-        "system_design": "Design a process for versioning, testing, and safely rolling out system prompt changes in a live product.",
+        "foundational": [
+            "What's the difference between zero-shot and few-shot prompting, and when would you use each?",
+            "What is prompt engineering and why does it matter when working with LLMs?",
+            "What makes a prompt clear and effective for an LLM?",
+        ],
+        "applied": [
+            "How would you systematically compare two candidate system prompts to decide which performs better?",
+            "Suppose an LLM gives inconsistent answers to the same task. How could prompt engineering help?",
+            "How would you improve a prompt that produces vague or incomplete answers?",
+        ],
+        "advanced": [
+            "What failure modes can occur when prompts work well in testing but degrade in production?",
+            "How would you evaluate prompt quality beyond simply looking at a few example outputs?",
+            "How would you design an evaluation process for comparing different prompts?",
+        ],
+        "system_design": [
+            "Design a process for versioning, testing, and safely rolling out system prompt changes in a live product.",
+            "How would you build a prompt management system for a production AI application?",
+            "Design a safe workflow for testing new prompts before deploying them to users.",
+        ],
     },
+
     "agents": {
-        "foundational": "What's the difference between a simple function-calling LLM and an autonomous agent?",
-        "applied": "How would you decide whether a task needs a single agent versus a multi-agent architecture?",
-        "advanced": "What can go wrong when an agent selects the wrong tool, and how would you design the system to catch or recover from that?",
-        "system_design": "Design a multi-agent system where a router agent delegates to domain specialists. How do you prevent runaway loops or conflicting actions?",
+        "foundational": [
+            "What's the difference between a simple function-calling LLM and an autonomous agent?",
+            "What is an AI agent, and how is it different from a normal chatbot?",
+            "What role do tools play in an AI agent?",
+        ],
+        "applied": [
+            "How would you decide whether a task needs a single agent versus a multi-agent architecture?",
+            "How would you design an agent that needs to choose between several tools?",
+            "What would you do if an agent repeatedly chooses the wrong tool?",
+        ],
+        "advanced": [
+            "What can go wrong when an agent selects the wrong tool, and how would you design the system to recover?",
+            "How would you evaluate whether an agent is making reliable decisions?",
+            "What techniques can prevent an agent from entering an endless reasoning or tool-use loop?",
+        ],
+        "system_design": [
+            "Design a multi-agent system where a router agent delegates to domain specialists. How do you prevent runaway loops?",
+            "Design a production AI agent that can safely call external tools.",
+            "How would you design monitoring and guardrails for a multi-agent system?",
+        ],
     },
+
     "mcp": {
-        "foundational": "In your own words, what problem does the Model Context Protocol (MCP) solve?",
-        "applied": "How would you decide which capabilities of your system to expose as MCP tools versus keeping internal?",
-        "advanced": "What security or reliability concerns come up when exposing internal tools through an MCP server to external clients?",
-        "system_design": "Design an MCP server that exposes several tools with different risk levels. How would you structure authorization and error handling?",
+        "foundational": [
+            "In your own words, what problem does the Model Context Protocol solve?",
+            "What is MCP and why might an AI application use it?",
+            "How does MCP help an AI model interact with external tools or data?",
+        ],
+        "applied": [
+            "How would you decide which capabilities of your system to expose as MCP tools?",
+            "What types of functionality would you avoid exposing through an MCP server?",
+            "How would you handle errors when an MCP tool fails?",
+        ],
+        "advanced": [
+            "What security or reliability concerns arise when exposing internal tools through an MCP server?",
+            "How would you authenticate and authorize MCP tool requests?",
+            "How would you prevent an AI agent from misusing an MCP tool?",
+        ],
+        "system_design": [
+            "Design an MCP server that exposes several tools with different risk levels.",
+            "How would you structure authorization and error handling for a production MCP server?",
+            "Design a secure MCP architecture for an enterprise AI application.",
+        ],
     },
+
     "deployment": {
-        "foundational": "What are the basic steps to containerize a backend service for deployment?",
-        "applied": "How would you configure health checks so a load balancer or orchestrator can tell if your service is actually healthy versus just running?",
-        "advanced": "How would you roll out a breaking API change to a production service with zero downtime?",
-        "system_design": "Design the deployment and observability strategy for a service with unpredictable, spiky LLM-driven traffic.",
+        "foundational": [
+            "What are the basic steps to containerize a backend service for deployment?",
+            "What is the purpose of a health-check endpoint in a deployed application?",
+            "What is the difference between deploying an application and scaling an application?",
+        ],
+        "applied": [
+            "How would you configure health checks so a load balancer can determine whether your service is actually healthy?",
+            "How would you investigate a backend that works locally but fails after deployment?",
+            "How would you handle an application that becomes slow when traffic increases?",
+        ],
+        "advanced": [
+            "How would you roll out a breaking API change to a production service with zero downtime?",
+            "How would you design monitoring for an API handling unpredictable traffic?",
+            "What metrics would you monitor for a production AI service?",
+        ],
+        "system_design": [
+            "Design the deployment and observability strategy for a service with unpredictable, spiky LLM-driven traffic.",
+            "Design a highly available backend architecture for an AI application.",
+            "How would you design CI/CD, monitoring, health checks, and rollback for a production AI service?",
+        ],
     },
 }
-
 
 def _find_data_dir() -> Optional[Path]:
     """Best-effort discovery of the project's data/ directory."""
@@ -491,60 +625,128 @@ def _recent_transcript_snippet(session: Dict[str, Any], max_turns: int = 4) -> s
     return "\n".join(lines)
 
 
+def _asked_questions(session: Dict[str, Any]) -> List[str]:
+    """Return every interviewer question already used in this session."""
+    asked = []
+
+    # Explicit session-level tracking survives even if transcript formatting changes.
+    for question in session.get("asked_questions", []):
+        if question:
+            asked.append(str(question).strip())
+
+    # Also inspect transcript so older sessions remain compatible.
+    for turn in session.get("transcript", []):
+        if turn.get("role") != "agent":
+            continue
+
+        text = str(turn.get("text", "")).strip()
+        if not text:
+            continue
+
+        # The opening message contains a welcome preamble followed by the question.
+        if "\n\n" in text:
+            text = text.split("\n\n", 1)[1].strip()
+
+        if text and text not in asked:
+            asked.append(text)
+
+    return asked
+
+
+def _normalise_question(text: str) -> str:
+    """Normalise a question for duplicate detection."""
+    return " ".join((text or "").strip().lower().split())
+
+
 def _generate_question_llm(
     candidate: Candidate, topic: str, difficulty: str, session: Dict[str, Any]
 ) -> Optional[Dict[str, str]]:
+    asked = _asked_questions(session)
+    asked_block = "\n".join(f"- {q}" for q in asked[-12:]) or "(none yet)"
+
     system = (
-        "You are Aptivue, an adaptive technical interviewer conducting a live, spoken-style technical "
-        "interview. Ask exactly ONE next question. Make it feel like a natural follow-up to the "
-        "conversation so far — reference the candidate's own reasoning where relevant, don't just "
-        "switch topics abruptly. Never reveal scoring, grading, or meta-commentary about the candidate's "
-        "performance. Respond ONLY with compact JSON, no markdown fences: "
-        '{"question": "...", "reason": "one short sentence explaining why this question was chosen, '
-        'safe to show in a UI"}'
+        "You are Aptivue, an adaptive technical interviewer conducting a live, spoken-style "
+        "technical interview. Ask exactly ONE question. The interview must feel adaptive and "
+        "natural. Do not repeat any question already asked. Do not merely rephrase an already "
+        "asked question. If the candidate performed weakly, probe a different aspect of the "
+        "same topic; if they performed well, increase the depth or move to a related topic. "
+        "Use the requested topic and difficulty as guidance. Never reveal scoring, grading, "
+        "or internal reasoning. Respond ONLY with compact JSON, no markdown fences: "
+        '{"question": "...", "reason": "one short sentence explaining why this question was chosen"}'
     )
+
     user = (
         f"Candidate: {candidate.member.name}, role: {candidate.member.jobRole}, "
         f"{candidate.member.yearsExperience} years experience.\n"
         f"Topic to ask about now: {TOPIC_DISPLAY_NAMES.get(topic, topic)} "
         f"(curriculum reference: {_topic_curriculum_label(topic)}).\n"
         f"Target difficulty: {difficulty}.\n"
-        f"Candidate's curriculum status for this topic: {session['skill_state'][topic]['curriculum_status']}.\n"
-        f"Recent conversation:\n{_recent_transcript_snippet(session)}\n"
+        f"Candidate's curriculum status for this topic: "
+        f"{session['skill_state'][topic]['curriculum_status']}.\n\n"
+        f"Questions already asked — NEVER repeat or closely rephrase these:\n"
+        f"{asked_block}\n\n"
+        f"Recent conversation:\n{_recent_transcript_snippet(session, max_turns=6)}\n"
     )
+
     raw = _call_llm(system, user, max_tokens=400)
     parsed = _extract_json(raw) if raw else None
+
     if parsed and parsed.get("question"):
-        return {"question": parsed["question"].strip(), "reason": parsed.get("reason", "").strip()}
+        question = str(parsed["question"]).strip()
+        normalised = _normalise_question(question)
+
+        # Reject an exact duplicate returned by Claude.
+        if normalised and all(
+            normalised != _normalise_question(previous)
+            for previous in asked
+        ):
+            return {
+                "question": question,
+                "reason": str(parsed.get("reason", "")).strip(),
+            }
+
     return None
 
 
-def _last_agent_text(session: Dict[str, Any]) -> str:
-    for turn in reversed(session.get("transcript", [])):
-        if turn["role"] == "agent":
-            return turn["text"]
-    return ""
-
-
-def _generate_question_fallback(topic: str, difficulty: str, session: Dict[str, Any]) -> Dict[str, str]:
+def _generate_question_fallback(
+    topic: str, difficulty: str, session: Dict[str, Any]
+) -> Dict[str, str]:
     bank = FALLBACK_QUESTIONS.get(topic, {})
-    question = bank.get(difficulty) or bank.get("foundational") or (
-        f"Tell me about your experience with {TOPIC_DISPLAY_NAMES.get(topic, topic)}."
-    )
-    times_asked = session["skill_state"][topic]["times_asked"]
 
-    if times_asked > 0:
-        # Same topic revisited (e.g. probing a weak/partial answer further).
-        # If the bank has no fresh variant for this difficulty tier, don't
-        # repeat the exact same question — ask for a concrete example instead.
-        already_asked = question in _last_agent_text(session)
-        if already_asked:
-            question = (
-                f"Let's approach it differently — can you walk me through a concrete example "
-                f"that illustrates {TOPIC_DISPLAY_NAMES.get(topic, topic)}?"
-            )
+    questions = bank.get(difficulty) or bank.get("foundational") or [
+        f"Tell me about your experience with "
+        f"{TOPIC_DISPLAY_NAMES.get(topic, topic)}."
+    ]
+
+    asked = _asked_questions(session)
+    asked_normalised = {_normalise_question(q) for q in asked}
+
+    # First choose an unused question from the requested difficulty.
+    unused = [
+        q for q in questions
+        if _normalise_question(q) not in asked_normalised
+    ]
+
+    if unused:
+        question = random.choice(unused)
+    else:
+        # If that tier is exhausted, use any unused question for the topic.
+        all_topic_questions = []
+        for tier_questions in bank.values():
+            all_topic_questions.extend(tier_questions)
+
+        unused_topic = [
+            q for q in all_topic_questions
+            if _normalise_question(q) not in asked_normalised
+        ]
+
+        if unused_topic:
+            question = random.choice(unused_topic)
         else:
-            question = "Building on that — " + question[0].lower() + question[1:]
+            # Only reached if the complete bank for this topic is exhausted.
+            # Still return a valid question rather than using a canned
+            # "concrete example" question every time.
+            question = random.choice(questions)
 
     return {"question": question, "reason": ""}
 
@@ -552,9 +754,29 @@ def _generate_question_fallback(topic: str, difficulty: str, session: Dict[str, 
 def generate_question(
     candidate: Candidate, topic: str, difficulty: str, session: Dict[str, Any]
 ) -> Dict[str, str]:
-    return _generate_question_llm(candidate, topic, difficulty, session) or _generate_question_fallback(
-        topic, difficulty, session
-    )
+    """
+    Generate one question while guaranteeing that exact questions are not
+    repeated within the same interview session.
+    """
+    session.setdefault("asked_questions", [])
+
+    result = _generate_question_llm(candidate, topic, difficulty, session)
+
+    if result is None:
+        result = _generate_question_fallback(topic, difficulty, session)
+
+    # Final duplicate guard. If an LLM/fallback ever returns a duplicate,
+    # choose an unused fallback question.
+    asked_normalised = {
+        _normalise_question(q) for q in session["asked_questions"]
+    }
+
+    if _normalise_question(result["question"]) in asked_normalised:
+        result = _generate_question_fallback(topic, difficulty, session)
+
+    session["asked_questions"].append(result["question"])
+
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -658,6 +880,7 @@ class InterviewAgent:
         session["skill_state"] = skill_state
         session["topic_priority_order"] = priority_order
         session["reasoning_log"] = []
+        session["asked_questions"] = []
 
         first_topic = priority_order[0]
         opening_difficulty = "applied" if (candidate.member.yearsExperience or 0) >= 8 else "foundational"
