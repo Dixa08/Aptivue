@@ -21,13 +21,12 @@ Traditional technical interviews often rely on fixed question lists and provide 
 - Difficulty level
 
 ---
-
 # 📸 Product Preview
 
 ## 👤 Candidate Setup
 
 <p align="center">
-  <img src="./doc/CANDIDATE-FILENAME.png" width="850" alt="Aptivue Candidate Setup">
+  <img src="./doc/candidate-selection.png" width="850" alt="Aptivue Candidate Setup">
 </p>
 
 ---
@@ -35,7 +34,7 @@ Traditional technical interviews often rely on fixed question lists and provide 
 ## 💬 Adaptive Technical Interview
 
 <p align="center">
-  <img src="./doc/INTERVIEW-FILENAME.png" width="850" alt="Aptivue Adaptive Interview">
+  <img src="./doc/interview.png" width="850" alt="Aptivue Adaptive Technical Interview">
 </p>
 
 ---
@@ -43,8 +42,10 @@ Traditional technical interviews often rely on fixed question lists and provide 
 ## 📊 Interview Feedback
 
 <p align="center">
-  <img src="./doc/FEEDBACK-FILENAME.png" width="850" alt="Aptivue Interview Feedback">
+  <img src="./doc/feedback.png" width="850" alt="Aptivue Interview Feedback">
 </p>
+
+
 
 ---
 
