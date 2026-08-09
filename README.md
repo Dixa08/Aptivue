@@ -114,3 +114,35 @@ Traditional technical interviews often rely on fixed question lists and provide 
                          │
                          ▼
                 📊 Final Feedback
+
+```
+# project structure
+```
+Aptivue/
+│
+├── 📁 frontend/
+│   ├── 📁 src/
+│   │   ├── 📁 components/
+│   │   ├── 📁 data/
+│   │   ├── 📁 lib/
+│   │   ├── 📁 types/
+│   │   ├── 📄 App.tsx
+│   │   └── 🎨 index.css
+│   │
+│   ├── 📄 package.json
+│   ├── 📄 vite.config.ts
+│   └── 📄 tsconfig.json
+│
+├── 📁 backend/
+│   ├── 🐍 interview_agent.py
+│   ├── 🐍 main.py
+│   └── 📄 requirements.txt
+│
+├── 📁 doc/
+│   ├── 🖼️ candidate-selection.png
+│   ├── 🖼️ interview.png
+│   └── 🖼️ feedback.png
+│
+├── 🤖 PROMPTS.md
+├── 📖 README.md
+└── 🚫 .gitignore
