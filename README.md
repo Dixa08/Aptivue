@@ -194,6 +194,45 @@ Adaptive Question Generation • Answer Evaluation • Interview Orchestration
 ### 🚀 Deployment & Development
 
 <p align="center">
+
+
+---
+
+# 🏆 Hackathon Submission
+
+### Problem Statement 2 — The Interview Agent
+
+Aptivue demonstrates an **AI-assisted adaptive technical interview system** that combines role-aware questioning, dynamic difficulty, non-repeating questions, and structured candidate feedback.
+
+---
+
+## 🔗 Links
+
+🌐 **Live Demo:**  
+https://aptivue.vercel.app
+
+💻 **Source Code:**  
+https://github.com/Dixa08/Aptivue
+
+🤖 **AI Usage Log:**  
+[View PROMPTS.md](PROMPTS.md)
+
+---
+
+## 🤖 AI-Assisted Development
+
+Aptivue was built using an **AI-assisted / vibe-coding workflow** involving:
+
+**Planning → Implementation → Testing → Debugging → Deployment → Refinement**
+
+The complete development prompt log is available in **[PROMPTS.md](PROMPTS.md)**.
+
+---
+
+<p align="center">
+  <strong>🧠 Aptivue</strong><br>
+  Making technical interviews adaptive.
+</p>
   <img src="https://skillicons.dev/icons?i=vercel,git,github" alt="Deployment and Development Technologies">
 </p>
 
