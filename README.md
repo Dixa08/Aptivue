@@ -108,7 +108,9 @@ Traditional technical interviews often rely on fixed question lists and provide 
                          │
                          ▼
                 📊 Final Feedback
+```
 
+```
 ┌───────────────────────┐
 │       Candidate       │
 └───────────┬───────────┘
@@ -145,9 +147,9 @@ Traditional technical interviews often rely on fixed question lists and provide 
  │            │ │ Question Bank│
  └────────────┘ └──────────────┘
 
+```
 
-
-Project Structure
+#Project Structure
 
 Aptivue/
 │
