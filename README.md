@@ -146,3 +146,23 @@ Aptivue/
 ├── 🤖 PROMPTS.md
 ├── 📖 README.md
 └── 🚫 .gitignore
+
+```
+---
+
+## 👩‍💻 Team
+
+### Dixa Rawat
+
+**B.Tech CSE | AI & ML**
+
+Built with curiosity, AI-assisted development, and a focus on making technical interviews more adaptive.
+
+🔗 **GitHub:** [Dixa08](https://github.com/Dixa08)
+
+---
+
+<p align="center">
+  <strong>🧠 Aptivue</strong><br>
+  <i>Making technical interviews adaptive.</i>
+</p>
