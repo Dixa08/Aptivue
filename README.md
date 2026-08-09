@@ -27,19 +27,23 @@ Traditional technical interviews often rely on fixed question lists and provide 
 ## 👤 Candidate Setup
 
 <p align="center">
-  <img src="doc/YOUR-CANDIDATE-IMAGE.png" width="850">
+  <img src="./doc/CANDIDATE-FILENAME.png" width="850" alt="Aptivue Candidate Setup">
 </p>
+
+---
 
 ## 💬 Adaptive Technical Interview
 
 <p align="center">
-  <img src="doc/YOUR-INTERVIEW-IMAGE.png" width="850">
+  <img src="./doc/INTERVIEW-FILENAME.png" width="850" alt="Aptivue Adaptive Interview">
 </p>
+
+---
 
 ## 📊 Interview Feedback
 
 <p align="center">
-  <img src="doc/YOUR-FEEDBACK-IMAGE.png" width="850">
+  <img src="./doc/FEEDBACK-FILENAME.png" width="850" alt="Aptivue Interview Feedback">
 </p>
 
 ---
@@ -108,68 +112,3 @@ Traditional technical interviews often rely on fixed question lists and provide 
                          │
                          ▼
                 📊 Final Feedback
-```
-
-```
-┌───────────────────────┐
-│       Candidate       │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│   React + Vite UI     │
-│       Vercel          │
-└───────────┬───────────┘
-            │
-            │ HTTP API
-            ▼
-┌───────────────────────┐
-│    FastAPI Backend    │
-│        Render         │
-└───────────┬───────────┘
-            │
-            ▼
-┌──────────────────────────────┐
-│       Interview Agent        │
-├──────────────────────────────┤
-│ • Topic Selection            │
-│ • Difficulty Adaptation      │
-│ • Question Generation        │
-│ • Answer Evaluation          │
-│ • Interview State            │
-│ • Feedback Generation        │
-└──────────────┬───────────────┘
-               │
-        ┌──────┴──────┐
-        ▼             ▼
- ┌────────────┐ ┌──────────────┐
- │ Claude API │ │   Fallback   │
- │            │ │ Question Bank│
- └────────────┘ └──────────────┘
-
-```
-
-#Project Structure
-
-Aptivue/
-│
-├── 📁 frontend/
-│   ├── 📁 src/
-│   │   ├── 📁 components/
-│   │   ├── 📁 data/
-│   │   ├── 📁 lib/
-│   │   └── 📁 types/
-│   └── 📄 package.json
-│
-├── 📁 backend/
-│   ├── 🐍 interview_agent.py
-│   ├── 🐍 main.py
-│   └── 📄 requirements.txt
-│
-├── 📁 doc/
-│   ├── 🖼️ screenshots
-│   └── ...
-│
-├── 🤖 PROMPTS.md
-├── 📖 README.md
-└── 🚫 .gitignore
