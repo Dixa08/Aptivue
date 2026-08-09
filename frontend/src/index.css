@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f8f7fc;
+  background-image:
+    radial-gradient(
+      ellipse 900px 500px at 10% -10%,
+      rgba(124, 92, 246, 0.10),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 700px 500px at 100% 10%,
+      rgba(99, 102, 241, 0.08),
+      transparent 55%
+    );
+  color: #20233a;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(124, 92, 246, 0.20);
+  color: #25263a;;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d8d2e8;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bcb3d4;
+}
+
+:focus-visible {
+  outline: 2px solid #7c5cf6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #e7e3f2;
+  box-shadow: 0 8px 30px rgba(61, 48, 107, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.text-gradient {
+  background: linear-gradient(
+    120deg,
+    #25233a 10%,
+    #6d4de8 60%,
+    #8b6cf6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
