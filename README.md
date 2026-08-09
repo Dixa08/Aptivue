@@ -1,81 +1,128 @@
 # 🧠 Aptivue
 
-### AI-Powered Adaptive Technical Interview Agent
+<p align="center">
+  <strong>AI-Powered Adaptive Technical Interview Agent</strong>
+</p>
 
-Aptivue is an **AI-powered technical interview platform** that conducts role-aware interviews, adapts questions based on candidate performance, and generates structured feedback at the end of the interview.
+<p align="center">
+  Aptivue conducts role-aware technical interviews, adapts questions based on
+  candidate responses, and generates structured interview feedback.
+</p>
 
-Instead of following a fixed questionnaire, Aptivue maintains an interview state and dynamically selects **topics, difficulty levels, follow-up questions, and evaluation criteria** based on the candidate's responses.
-
----
-
-## 🚀 Live Demo
-
-🌐 **Live Application:**  
-https://aptivue.vercel.app
-
-📦 **Source Code:**  
-https://github.com/Dixa08/Aptivue
-
-🤖 **AI Usage Log:**  
-https://github.com/Dixa08/Aptivue/blob/main/PROMPTS.md
+<p align="center">
+  <a href="https://aptivue.vercel.app">🌐 Live Demo</a> •
+  <a href="https://github.com/Dixa08/Aptivue">💻 GitHub</a> •
+  <a href="https://github.com/Dixa08/Aptivue/blob/main/PROMPTS.md">🤖 AI Usage Log</a>
+</p>
 
 ---
 
 ## 🎯 Problem
 
-Traditional technical interviews often rely on:
+Traditional technical interviews often rely on fixed question lists and
+provide the same interview experience to every candidate.
 
-- Fixed question lists
-- The same difficulty for every candidate
-- Limited adaptation to candidate responses
-- Manual evaluation
-- Inconsistent interview feedback
-
-This makes it difficult to conduct interviews that are **personalized, consistent, and scalable**.
-
-### Aptivue solves this by providing an adaptive interview experience.
-
-The system considers:
+**Aptivue introduces an adaptive interview flow** where the next question is
+influenced by:
 
 - Candidate role
 - Experience level
-- Technical topics
+- Technical topic
 - Previous answers
 - Answer quality
 - Current topic coverage
-- Interview difficulty
-
-and uses these signals to determine what should be asked next.
+- Difficulty level
 
 ---
 
-## ✨ Key Features
+# 📸 Product Preview
 
-### 🎯 Role-Aware Interviews
+## 👤 Candidate Setup
 
-Interviews are tailored according to the candidate's:
-
-- Job role
-- Experience
-- Technical curriculum
+<p align="center">
+  <img src="doc/YOUR-CANDIDATE-SCREENSHOT.png" width="850">
+</p>
 
 ---
 
-### 🧠 Adaptive Questioning
+## 💬 Adaptive Technical Interview
 
-The interview agent dynamically adjusts the interview based on candidate performance.
+<p align="center">
+  <img src="doc/YOUR-INTERVIEW-SCREENSHOT.png" width="850">
+</p>
 
-A strong answer can lead to a deeper question, while a weak answer can trigger a simpler conceptual or application-based question.
+---
+
+## 📊 Interview Feedback
+
+<p align="center">
+  <img src="doc/YOUR-FEEDBACK-SCREENSHOT.png" width="850">
+</p>
+
+---
+
+# ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| 🎯 Role-Aware | Interview questions are aligned with candidate role and experience |
+| 🧠 Adaptive | Difficulty changes based on candidate performance |
+| 🔄 Non-Repeating | Previously asked questions are tracked |
+| 📚 Multi-Topic | Supports multiple technical domains |
+| 🤖 AI-Powered | Uses LLM-based question generation |
+| 🛡️ Fallback System | Continues with deterministic questions if LLM generation fails |
+| 📊 Feedback | Generates strengths, knowledge gaps and next steps |
+
+---
+
+# 🔄 How Aptivue Works
 
 ```text
-Candidate Answer
-       ↓
-Answer Evaluation
-       ↓
-Update Interview State
-       ↓
-Determine Topic
-       ↓
-Determine Difficulty
-       ↓
-Generate Next Question
+                    👤 Candidate
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Candidate Setup │
+                └────────┬────────┘
+                         │
+                         ▼
+                ┌─────────────────┐
+                │ Interview State │
+                └────────┬────────┘
+                         │
+                         ▼
+              ┌──────────────────────┐
+              │ Topic + Difficulty   │
+              │     Selection        │
+              └──────────┬───────────┘
+                         │
+                         ▼
+              ┌──────────────────────┐
+              │   Question Generator │
+              │     Claude +         │
+              │  Fallback Question   │
+              │       Bank           │
+              └──────────┬───────────┘
+                         │
+                         ▼
+                💬 Interview Question
+                         │
+                         ▼
+                   👤 Answer
+                         │
+                         ▼
+              ┌──────────────────────┐
+              │   Answer Evaluation  │
+              └──────────┬───────────┘
+                         │
+                         ▼
+                🔄 Update State
+                         │
+                         ▼
+                 Next Question
+                         │
+                         ▼
+                  🏁 Completion
+                         │
+                         ▼
+                📊 Final Feedback
