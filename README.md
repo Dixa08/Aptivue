@@ -1,29 +1,16 @@
 # 🧠 Aptivue
 
-<p align="center">
-  <strong>AI-Powered Adaptive Technical Interview Agent</strong>
-</p>
+### AI-Powered Adaptive Technical Interview Agent
 
-<p align="center">
-  Aptivue conducts role-aware technical interviews, adapts questions based on
-  candidate responses, and generates structured interview feedback.
-</p>
-
-<p align="center">
-  <a href="https://aptivue.vercel.app">🌐 Live Demo</a> •
-  <a href="https://github.com/Dixa08/Aptivue">💻 GitHub</a> •
-  <a href="https://github.com/Dixa08/Aptivue/blob/main/PROMPTS.md">🤖 AI Usage Log</a>
-</p>
+Aptivue conducts **role-aware technical interviews**, adapts questions based on candidate responses, and generates structured interview feedback.
 
 ---
 
 ## 🎯 Problem
 
-Traditional technical interviews often rely on fixed question lists and
-provide the same interview experience to every candidate.
+Traditional technical interviews often rely on fixed question lists and provide the same interview experience to every candidate.
 
-**Aptivue introduces an adaptive interview flow** where the next question is
-influenced by:
+**Aptivue introduces an adaptive interview flow** where the next question is influenced by:
 
 - Candidate role
 - Experience level
@@ -40,23 +27,19 @@ influenced by:
 ## 👤 Candidate Setup
 
 <p align="center">
-  <img src="doc/candidate-selection.png" width="850">
+  <img src="doc/YOUR-CANDIDATE-IMAGE.png" width="850">
 </p>
-
----
 
 ## 💬 Adaptive Technical Interview
 
 <p align="center">
-  <img src="doc/interview.png" width="850">
+  <img src="doc/YOUR-INTERVIEW-IMAGE.png" width="850">
 </p>
-
----
 
 ## 📊 Interview Feedback
 
 <p align="center">
-  <img src="doc/feedback.png" width="850">
+  <img src="doc/YOUR-FEEDBACK-IMAGE.png" width="850">
 </p>
 
 ---
@@ -65,13 +48,13 @@ influenced by:
 
 | Feature | Description |
 |---|---|
-| 🎯 Role-Aware | Interview questions are aligned with candidate role and experience |
-| 🧠 Adaptive | Difficulty changes based on candidate performance |
-| 🔄 Non-Repeating | Previously asked questions are tracked |
-| 📚 Multi-Topic | Supports multiple technical domains |
-| 🤖 AI-Powered | Uses LLM-based question generation |
-| 🛡️ Fallback System | Continues with deterministic questions if LLM generation fails |
-| 📊 Feedback | Generates strengths, knowledge gaps and next steps |
+| 🎯 **Role-Aware** | Interview questions are aligned with candidate role and experience |
+| 🧠 **Adaptive** | Difficulty changes based on candidate performance |
+| 🔄 **Non-Repeating** | Previously asked questions are tracked |
+| 📚 **Multi-Topic** | Supports multiple technical domains |
+| 🤖 **AI-Powered** | Uses LLM-based question generation |
+| 🛡️ **Fallback System** | Continues with deterministic questions if LLM generation fails |
+| 📊 **Feedback** | Generates strengths, knowledge gaps, and next steps |
 
 ---
 
@@ -99,9 +82,8 @@ influenced by:
                          ▼
               ┌──────────────────────┐
               │   Question Generator │
-              │     Claude +         │
-              │  Fallback Question   │
-              │       Bank           │
+              │  Claude + Fallback   │
+              │    Question Bank     │
               └──────────┬───────────┘
                          │
                          ▼
@@ -126,3 +108,66 @@ influenced by:
                          │
                          ▼
                 📊 Final Feedback
+
+┌───────────────────────┐
+│       Candidate       │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│   React + Vite UI     │
+│       Vercel          │
+└───────────┬───────────┘
+            │
+            │ HTTP API
+            ▼
+┌───────────────────────┐
+│    FastAPI Backend    │
+│        Render         │
+└───────────┬───────────┘
+            │
+            ▼
+┌──────────────────────────────┐
+│       Interview Agent        │
+├──────────────────────────────┤
+│ • Topic Selection            │
+│ • Difficulty Adaptation      │
+│ • Question Generation        │
+│ • Answer Evaluation          │
+│ • Interview State            │
+│ • Feedback Generation        │
+└──────────────┬───────────────┘
+               │
+        ┌──────┴──────┐
+        ▼             ▼
+ ┌────────────┐ ┌──────────────┐
+ │ Claude API │ │   Fallback   │
+ │            │ │ Question Bank│
+ └────────────┘ └──────────────┘
+
+
+
+Project Structure
+
+Aptivue/
+│
+├── 📁 frontend/
+│   ├── 📁 src/
+│   │   ├── 📁 components/
+│   │   ├── 📁 data/
+│   │   ├── 📁 lib/
+│   │   └── 📁 types/
+│   └── 📄 package.json
+│
+├── 📁 backend/
+│   ├── 🐍 interview_agent.py
+│   ├── 🐍 main.py
+│   └── 📄 requirements.txt
+│
+├── 📁 doc/
+│   ├── 🖼️ screenshots
+│   └── ...
+│
+├── 🤖 PROMPTS.md
+├── 📖 README.md
+└── 🚫 .gitignore
