@@ -152,7 +152,7 @@ Aptivue/
 
 ## 👩‍💻 Team
 
-### Dixa Rawat
+### dixa
 
 **B.Tech CSE | AI & ML**
 
