@@ -2,68 +2,72 @@
 
 ### AI-Powered Adaptive Technical Interview Agent
 
-Aptivue conducts **role-aware technical interviews**, adapts questions based on candidate responses, and generates structured interview feedback.
+> **Role-aware • Adaptive • AI-powered • Non-repeating • Structured Feedback**
+
+Aptivue conducts technical interviews that adapt to the candidate's **role, experience, topic coverage, and previous answers**, instead of following a fixed question list.
+
+---
+
+## 🔗 Quick Links
+
+| 🌐 Live Demo | 💻 Source Code | 🤖 AI Usage Log |
+|---|---|---|
+| [**Open Aptivue**](https://aptivue.vercel.app) | [**GitHub Repository**](https://github.com/Dixa08/Aptivue) | [**PROMPTS.md**](PROMPTS.md) |
 
 ---
 
 ## 🎯 Problem
 
-Traditional technical interviews often rely on fixed question lists and provide the same interview experience to every candidate.
+Traditional technical interviews often rely on fixed question lists and provide the same experience to every candidate.
 
 **Aptivue introduces an adaptive interview flow** where the next question is influenced by:
 
-- Candidate role
-- Experience level
+- Candidate role & experience
 - Technical topic
 - Previous answers
 - Answer quality
-- Current topic coverage
-- Difficulty level
+- Topic coverage
+- Current difficulty level
 
 ---
-# 📸 Product Preview
 
-## 👤 Candidate Setup
+## 📸 Product Preview
+
+### 👤 Candidate Setup
 
 <p align="center">
   <img src="./doc/candidate-selection.png" width="850" alt="Aptivue Candidate Setup">
 </p>
 
----
-
-## 💬 Adaptive Technical Interview
+### 💬 Adaptive Technical Interview
 
 <p align="center">
-  <img src="./doc/interview.png" width="850" alt="Aptivue Adaptive Technical Interview">
+  <img src="./doc/interview.png" width="850" alt="Aptivue Interview">
+</p>
+
+### 📊 Interview Feedback
+
+<p align="center">
+  <img src="./doc/feedback.png" width="850" alt="Aptivue Feedback">
 </p>
 
 ---
 
-## 📊 Interview Feedback
+## ✨ Key Features
 
-<p align="center">
-  <img src="./doc/feedback.png" width="850" alt="Aptivue Interview Feedback">
-</p>
-
-
-
----
-
-# ✨ Key Features
-
-| Feature | Description |
+| Feature | What it does |
 |---|---|
-| 🎯 **Role-Aware** | Interview questions are aligned with candidate role and experience |
-| 🧠 **Adaptive** | Difficulty changes based on candidate performance |
-| 🔄 **Non-Repeating** | Previously asked questions are tracked |
-| 📚 **Multi-Topic** | Supports multiple technical domains |
-| 🤖 **AI-Powered** | Uses LLM-based question generation |
-| 🛡️ **Fallback System** | Continues with deterministic questions if LLM generation fails |
-| 📊 **Feedback** | Generates strengths, knowledge gaps, and next steps |
+| 🎯 **Role-Aware** | Tailors questions to the candidate's role and experience |
+| 🧠 **Adaptive Difficulty** | Adjusts question depth based on performance |
+| 🔄 **Non-Repeating** | Tracks previously asked questions |
+| 📚 **Multi-Topic** | Covers multiple technical domains |
+| 🤖 **LLM-Powered** | Generates contextual interview questions |
+| 🛡️ **Fallback System** | Uses a deterministic question bank when needed |
+| 📊 **Structured Feedback** | Identifies strengths, knowledge gaps, and next steps |
 
 ---
 
-# 🔄 How Aptivue Works
+## 🔄 How It Works
 
 ```text
                     👤 Candidate
@@ -92,10 +96,10 @@ Traditional technical interviews often rely on fixed question lists and provide 
               └──────────┬───────────┘
                          │
                          ▼
-                💬 Interview Question
+                   💬 Question
                          │
                          ▼
-                   👤 Answer
+                    👤 Answer
                          │
                          ▼
               ┌──────────────────────┐
@@ -103,139 +107,10 @@ Traditional technical interviews often rely on fixed question lists and provide 
               └──────────┬───────────┘
                          │
                          ▼
-                🔄 Update State
+                   🔄 Update State
                          │
                          ▼
-                 Next Question
-                         │
-                         ▼
-                  🏁 Completion
+                  Next Question
                          │
                          ▼
                 📊 Final Feedback
-
-
-```
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# 📁 Project Structure
-
-```text
-Aptivue/
-│
-├── 📁 frontend/
-│   ├── 📁 src/
-│   │   ├── 📁 components/
-│   │   ├── 📁 data/
-│   │   ├── 📁 lib/
-│   │   ├── 📁 types/
-│   │   ├── 📄 App.tsx
-│   │   └── 🎨 index.css
-│   │
-│   ├── 📄 package.json
-│   ├── 📄 vite.config.ts
-│   └── 📄 tsconfig.json
-│
-├── 📁 backend/
-│   ├── 🐍 interview_agent.py
-│   ├── 🐍 main.py
-│   └── 📄 requirements.txt
-│
-├── 📁 doc/
-│   ├── 🖼️ candidate-selection.png
-│   ├── 🖼️ interview.png
-│   └── 🖼️ feedback.png
-│
-├── 🤖 PROMPTS.md
-├── 📖 README.md
-└── 🚫 .gitignore
-
-```
-
-# 🛠️ Technology Stack
-
-### 🎨 Frontend
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=react,ts,vite,tailwind" alt="Frontend Technologies">
-</p>
-
-<p align="center">
-  <b>React</b> • <b>TypeScript</b> • <b>Vite</b> • <b>Tailwind CSS</b>
-</p>
-
----
-
-### ⚙️ Backend
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi" alt="Backend Technologies">
-</p>
-
-<p align="center">
-  <b>Python</b> • <b>FastAPI</b> • <b>Pydantic</b>
-</p>
-
----
-
-### 🤖 AI
-
-<p align="center">
-
-🤖 <b>Anthropic Claude API</b>
-
-</p>
-
-<p align="center">
-Adaptive Question Generation • Answer Evaluation • Interview Orchestration
-</p>
-
----
-
-### 🚀 Deployment & Development
-
-<p align="center">
-
-
----
-
-# 🏆 Hackathon Submission
-
-### Problem Statement 2 — The Interview Agent
-
-Aptivue demonstrates an **AI-assisted adaptive technical interview system** that combines role-aware questioning, dynamic difficulty, non-repeating questions, and structured candidate feedback.
-
----
-
-## 🔗 Links
-
-🌐 **Live Demo:**  
-https://aptivue.vercel.app
-
-💻 **Source Code:**  
-https://github.com/Dixa08/Aptivue
-
-🤖 **AI Usage Log:**  
-[View PROMPTS.md](PROMPTS.md)
-
----
-
-## 🤖 AI-Assisted Development
-
-Aptivue was built using an **AI-assisted / vibe-coding workflow** involving:
-
-**Planning → Implementation → Testing → Debugging → Deployment → Refinement**
-
-The complete development prompt log is available in **[PROMPTS.md](PROMPTS.md)**.
-
----
-
-<p align="center">
-  <strong>🧠 Aptivue</strong><br>
-  Making technical interviews adaptive.
-</p>
-  <img src="https://skillicons.dev/icons?i=vercel,git,github" alt="Deployment and Development Technologies">
-</p>
-
-<p align="center">
-  <b>Vercel</b> • <b>Render</b> • <b>Git</b> • <b>GitHub</b>
-</p>
