@@ -149,23 +149,54 @@ Aptivue/
 ├── 📖 README.md
 └── 🚫 .gitignore
 
+```
 
+# 🛠️ Technology Stack
 
-### And immediately below it, add this:
+### 🎨 Frontend
 
-```markdown
-### 📂 Directory Overview
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,ts,vite,tailwind" alt="Frontend Technologies">
+</p>
 
-| Directory / File | Purpose |
-|---|---|
-| 🎨 `frontend/` | React + TypeScript + Vite user interface |
-| 🧩 `frontend/src/components/` | Reusable UI components |
-| 📚 `frontend/src/data/` | Interview topics and question-related data |
-| 🔧 `frontend/src/lib/` | Frontend utilities and API logic |
-| 📝 `frontend/src/types/` | TypeScript type definitions |
-| ⚙️ `backend/` | FastAPI backend and interview engine |
-| 🧠 `backend/interview_agent.py` | Core adaptive interview logic |
-| 🚀 `backend/main.py` | FastAPI application and API endpoints |
-| 📸 `doc/` | Product screenshots used in the README |
-| 🤖 `PROMPTS.md` | AI-assisted development / vibe-coding log |
-| 📖 `README.md` | Project documentation |
+<p align="center">
+  <b>React</b> • <b>TypeScript</b> • <b>Vite</b> • <b>Tailwind CSS</b>
+</p>
+
+---
+
+### ⚙️ Backend
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,fastapi" alt="Backend Technologies">
+</p>
+
+<p align="center">
+  <b>Python</b> • <b>FastAPI</b> • <b>Pydantic</b>
+</p>
+
+---
+
+### 🤖 AI
+
+<p align="center">
+
+🤖 <b>Anthropic Claude API</b>
+
+</p>
+
+<p align="center">
+Adaptive Question Generation • Answer Evaluation • Interview Orchestration
+</p>
+
+---
+
+### 🚀 Deployment & Development
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=vercel,git,github" alt="Deployment and Development Technologies">
+</p>
+
+<p align="center">
+  <b>Vercel</b> • <b>Render</b> • <b>Git</b> • <b>GitHub</b>
+</p>
