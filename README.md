@@ -5,6 +5,7 @@
 > **Role-aware • Adaptive • AI-powered • Non-repeating • Structured Feedback**
 
 Aptivue conducts technical interviews that adapt to the candidate's **role, experience, topic coverage, and previous answers**, instead of following a fixed question list.
+it give personalize test for the interviewing and track the knowledge graph of user
 
 ---
 
