@@ -156,6 +156,7 @@ Aptivue/
 ### dixa
 **date: 08/2026**
 **B.Tech CSE | AI & ML**
+**5th semester**
 
 Built with curiosity, AI-assisted development, and a focus on making technical interviews more adaptive.
 
